@@ -318,7 +318,7 @@ public class AuthenticationHandshakeHandler implements HandshakeHandler, Lifecyc
     protected Principal determineUser(ServerHttpRequest request, WebSocketHandler wsHandler, Map<String, Object> attributes) throws Exception {
         Method method = authenticatorObj.getClass().getMethod(invokeMethodName, ServerHttpRequest.class);
 
-        return Optional.ofNullable((Principal) method.invoke(authenticatorObj,request))
+        return Optional.ofNullable((Principal) method.invoke(authenticatorObj, request))
                 .orElse(request.getPrincipal());
 
     }
